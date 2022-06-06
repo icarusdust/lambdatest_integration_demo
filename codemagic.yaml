@@ -27,7 +27,7 @@ workflows:
           storeFile=/tmp/keystore.keystore
           EOF
       - name: Test
-        script: cd android && ./gradlew test
+        script: ./gradlew test
         test_report: app/build/test-results/**/*.xml
       - name: Build Android debug APK
         script: |
