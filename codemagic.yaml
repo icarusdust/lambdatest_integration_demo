@@ -37,3 +37,4 @@ workflows:
 #             curl --location --request POST 'https://manual-api.lambdatest.com/app/upload/realDevice' --header 'Authorization: Basic bmloYWxuZXZlcmNvZGU6dFpBeTE3aXZzOUpsTFBEcWpCM24zc1p4WnEzSzFTelBtYUd3T0ZOZGRFRzlrZFllSnQ=' --form 'name="lambda1"' --form 'appFile=@"app/build/outputs/apk/release/app-release.apk"'
     artifacts:
       - app/build/outputs/**/*.apk
+      - app/build/test-results/**/*.xml
