@@ -43,8 +43,8 @@ workflows:
               export REPORT_PATH=$(pwd)/report
               docker run -t --rm -v \
                 $REPORT_PATH:/katalon/report \
-                -e PASSWORD=$KATALON_API_KEY  \
-                -e PROJECT_ID=50236 \
+                -e PASSWORD=a26bb19e-3653-4ebf-9d71-cc0e45b24de7  \
+                -e PROJECT_ID=643523 \
                 -e TYPE=junit \
                 -e REPORT_PATH=app/build/test-results/testDebugUnitTest/TEST-com.codemagic.magic.myapplication.ExampleUnitTest.xml \
                 katalonstudio/report-uploader:0.0.7.11
