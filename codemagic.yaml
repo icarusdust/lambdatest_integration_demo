@@ -47,7 +47,7 @@ workflows:
               -e PASSWORD=a26bb19e-3653-4ebf-9d71-cc0e45b24de7  \
               -e PROJECT_ID=643523 \
               -e TYPE=junit \
-              -e REPORT_PATH=app/build/outputs/androidTest-results/connected/*.xml \
+              -e REPORT_PATH=/katalon/report \
               katalonstudio/report-uploader:0.0.7.11
     artifacts:
       - app/build/outputs/**/*.apk
