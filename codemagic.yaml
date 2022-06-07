@@ -32,9 +32,17 @@ workflows:
       - name: Build Android debug APK
         script: |
           ./gradlew assembleRelease
-#       - name: App upload and Set app id in environment variable.
-#         script: |
-#             curl --location --request POST 'https://manual-api.lambdatest.com/app/upload/realDevice' --header 'Authorization: Basic bmloYWxuZXZlcmNvZGU6dFpBeTE3aXZzOUpsTFBEcWpCM24zc1p4WnEzSzFTelBtYUd3T0ZOZGRFRzlrZFllSnQ=' --form 'name="lambda1"' --form 'appFile=@"app/build/outputs/apk/release/app-release.apk"'
+     - name: Katalon
+       script: | 
+            set -ex
+            export REPORT_PATH=$(pwd)/report
+            docker run -t --rm -v \
+              $REPORT_PATH:/katalon/report \
+              -e PASSWORD=a26bb19e-3653-4ebf-9d71-cc0e45b24de7  \
+              -e PROJECT_ID=643523 \
+              -e TYPE=junit \
+              -e REPORT_PATH=/app/build/test-results/**/*.xml \
+              katalonstudio/report-uploader:0.0.7.11
     artifacts:
       - app/build/outputs/**/*.apk
       - app/build/test-results/**/*.xml
