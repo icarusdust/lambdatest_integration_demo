@@ -26,14 +26,15 @@ workflows:
           keyAlias=$CM_KEY_ALIAS_USERNAME
           storeFile=/tmp/keystore.keystore
           EOF
-#       - name: Test
-#         script: ./gradlew test
-#         test_report: app/build/test-results/**/*.xml
       - name: Test
         script: |
-         set -e
-         ./gradlew connectedAndroidTest
-        test_report: app/build/outputs/androidTest-results/connected/*.xml
+            ./gradlew test
+        test_report: app/build/test-results/**/*.xml
+#       - name: Test
+#         script: |
+#          set -e
+#          ./gradlew connectedAndroidTest
+#         test_report: app/build/outputs/androidTest-results/connected/*.xml
       - name: Build Android debug APK
         script: |
           ./gradlew assembleRelease
@@ -50,4 +51,4 @@ workflows:
               katalonstudio/report-uploader:0.0.7.11
     artifacts:
       - app/build/outputs/**/*.apk
-      - app/build/outputs/androidTest-results/connected/*.xml
+      - app/build/test-results/**/*.xml
