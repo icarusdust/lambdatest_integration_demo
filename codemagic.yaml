@@ -40,8 +40,6 @@ workflows:
           ./gradlew assembleRelease
       - name: Katalon
         script: | 
-            set -ex
-            export REPORT_PATH=$(pwd)/report
             docker run -t --rm -v \
               $REPORT_PATH:/katalon/report \
               -e PASSWORD=a26bb19e-3653-4ebf-9d71-cc0e45b24de7  \
