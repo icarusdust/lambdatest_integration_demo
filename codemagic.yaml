@@ -26,9 +26,14 @@ workflows:
           keyAlias=$CM_KEY_ALIAS_USERNAME
           storeFile=/tmp/keystore.keystore
           EOF
+#       - name: Test
+#         script: ./gradlew test
+#         test_report: app/build/test-results/**/*.xml
       - name: Test
-        script: ./gradlew test
-        test_report: app/build/test-results/**/*.xml
+       script: |
+         set -e
+         ./gradlew connectedAndroidTest
+       test_report: app/build/outputs/androidTest-results/connected/*.xml
       - name: Build Android debug APK
         script: |
           ./gradlew assembleRelease
@@ -41,8 +46,8 @@ workflows:
               -e PASSWORD=a26bb19e-3653-4ebf-9d71-cc0e45b24de7  \
               -e PROJECT_ID=643523 \
               -e TYPE=junit \
-              -e REPORT_PATH=app/build/test-results/**/*.xml \
+              -e REPORT_PATH=app/build/outputs/androidTest-results/connected/*.xml \
               katalonstudio/report-uploader:0.0.7.11
     artifacts:
       - app/build/outputs/**/*.apk
-      - app/build/test-results/**/*.xml
+      - app/build/outputs/androidTest-results/connected/*.xml
