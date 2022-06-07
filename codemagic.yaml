@@ -32,8 +32,8 @@ workflows:
       - name: Build Android debug APK
         script: |
           ./gradlew assembleRelease
-     - name: Katalon
-       script: | 
+      - name: Katalon
+        script: | 
             set -ex
             export REPORT_PATH=$(pwd)/report
             docker run -t --rm -v \
