@@ -48,8 +48,8 @@ workflows:
 #                 -e TYPE=junit \
 #                 -e REPORT_PATH=app/build/test-results/testDebugUnitTest/TEST-com.codemagic.magic.myapplication.ExampleUnitTest.xml \
 #                 katalonstudio/report-uploader:0.0.7.11
-        - name: Katalon API
-          script: |
+       - name: Katalon API
+         script: |
             curl -X 'POST' \
             'https://analytics.katalon.com/api/v1/junit/test-reports?projectId=643523&batch=22&folderPath=app%2Fbuild%2Ftest-results%2FtestDebugUnitTest%2FTEST-com.codemagic.magic.myapplication.ExampleUnitTest.xml&isEnd=.xml&fileName=TEST-com.codemagic.magic.myapplication.ExampleUnitTest.xml&uploadedPath=app%2Fbuild%2Ftest-results%2FtestDebugUnitTest%2FTEST-com.codemagic.magic.myapplication.ExampleUnitTest.xml' \
             -H 'accept: */*' \
