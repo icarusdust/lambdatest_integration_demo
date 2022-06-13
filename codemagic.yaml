@@ -39,13 +39,13 @@ workflows:
         script: |
           ./gradlew assembleRelease
 
-      - name: Katalon API
-        script: |
-            curl -X 'POST' \
-            'https://analytics.katalon.com/api/v1/junit/test-reports?projectId=643523&batch=22&folderPath=app%2Fbuild%2Ftest-results%2FtestDebugUnitTest%2FTEST-com.codemagic.magic.myapplication.ExampleUnitTest.xml&isEnd=.xml&fileName=TEST-com.codemagic.magic.myapplication.ExampleUnitTest.xml&uploadedPath=app%2Fbuild%2Ftest-results%2FtestDebugUnitTest%2FTEST-com.codemagic.magic.myapplication.ExampleUnitTest.xml' \
-            -H 'accept: */*' \
-            -H 'Authorization: Basic bmloYWxAbmV2ZXJjb2RlLmlvOkthczg0amkhPw=='
-            -d ''
+#       - name: Katalon API
+#         script: |
+#             curl -X 'POST' \
+#             'https://analytics.katalon.com/api/v1/junit/test-reports?projectId=643523&batch=22&folderPath=app%2Fbuild%2Ftest-results%2FtestDebugUnitTest%2FTEST-com.codemagic.magic.myapplication.ExampleUnitTest.xml&isEnd=.xml&fileName=TEST-com.codemagic.magic.myapplication.ExampleUnitTest.xml&uploadedPath=app%2Fbuild%2Ftest-results%2FtestDebugUnitTest%2FTEST-com.codemagic.magic.myapplication.ExampleUnitTest.xml' \
+#             -H 'accept: */*' \
+#             -H 'Authorization: Basic bmloYWxAbmV2ZXJjb2RlLmlvOkthczg0amkhPw=='
+#             -d ''
     artifacts:
       - app/build/outputs/**/*.apk
       - app/build/test-results/**/*.xml
